@@ -98,31 +98,31 @@
   }
 
   function page5(){
-    app.innerHTML = `
-      <h2>Would you like some flower on that day? 🌸</h2>
-      <button class="primary" onclick="flowerYes()">Yes</button>
-      <button onclick="flowerNo()">No</button>
-      ${meme(4)}
-    `;
-  }
+  app.innerHTML = `
+    <h2>Would you like some flower on that day? 🌸</h2>
+    <button class="primary" onclick="flowerYes()">Yes</button>
+    <button onclick="flowerNo()">No</button>
+    ${meme(4)}
+  `;
+}
 
-  function flowerYes(){
-    flower = 'Yes';
-    app.innerHTML = `
-      <h2>I will be there with some flowers 💐</h2>
-      <button class="primary" onclick="page6()">Continue</button>
-      <img class="meme" src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif">
-    `;
-  }
+function flowerYes(){
+  flower = 'Yes';
+  app.innerHTML = `
+    <h2>I will be there with some flowers 💐</h2>
+    <button class="primary" onclick="page6()">Continue</button>
+    <img class="meme" src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif">
+  `;
+}
 
-  function flowerNo(){
-    flower = 'No';
-    app.innerHTML = `
-      <h2>Of course we don't need flowers cause I'm the most gorgeous one 😏</h2>
-      <button class="primary" onclick="page6()">Continue</button>
-      <img class="meme" src="https://media.giphy.com/media/10tIjpzIu8fe0/giphy.gif">
-    `;
-  }
+function flowerNo(){
+  flower = 'No';
+  app.innerHTML = `
+    <h2>Of course we don't need flowers cause I'm the most gorgeous one 😏</h2>
+    <button class="primary" onclick="page6()">Continue</button>
+    <img class="meme" src="https://media.giphy.com/media/10tIjpzIu8fe0/giphy.gif">
+  `;
+}
     `;
   }
 
