@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hang out with me?</title>
+  <style>
+    body { margin:0; height:100vh; display:flex; justify-content:center; align-items:center; background:pink; font-family:Arial, sans-serif; overflow:hidden; }
+    .card { text-align:center; background:white; padding:30px 40px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.2); min-width:320px; max-width:500px; }
+    button { padding:10px 20px; margin:8px; font-size:16px; border:none; border-radius:10px; cursor:pointer; }
+    .primary { background:#ff4d6d; color:white; }
+    .secondary { background:#999; color:white; position:absolute; }
+    .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .day { background:#ffe3ea; border-radius:10px; padding:10px; cursor:pointer; }
+    textarea { width:100%; height:120px; border-radius:10px; border:1px solid #ccc; padding:10px; }
+    .meme { width:150px; margin-top:15px; }
+  </style>
+</head>
+<body>
+<div id="app" class="card"></div>
+<script>
+  const app = document.getElementById('app');
+  let selectedDate=null, selectedTime=null, idea='', flower='';
+
+  const memes = [
+    'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif', // page1
+    'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif', // page2
+    'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif', // page3
+    'https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif', // page4
+    'https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif', // page5
+    'https://media.giphy.com/media/l0HlNaQ6gWfllcjDO/giphy.gif'  // page6
+  ];
+
+  const meme = (i)=>`<img class="meme" src="${memes[i]}"/>`;
+
+  function page1(){
+    app.innerHTML = `
+      <h1>Hang out with me, pleaseeeeeee???? 🥺💖</h1>
+      <button class="primary" onclick="page2()">Yes 💕</button>
+      <button id="noBtn" class="secondary" onmouseover="moveNo()">No 😢</button>
+      ${meme(0)}
+    `;
+  }
+
+  function moveNo(){
+    const btn=document.getElementById('noBtn');
+    btn.style.left=Math.random()*(window.innerWidth-100)+'px';
+    btn.style.top=Math.random()*(window.innerHeight-50)+'px';
+  }
+
+  function page2(){
+    let daysHTML='';
+    for(let d=18; d<=25; d++){
+      daysHTML += `<div class="day" onclick="selectDate(${d})">April ${d}</div>`;
+    }
+    app.innerHTML = `
+      <h1>Pick a date 📅</h1>
+      <div class="grid">${daysHTML}</div>
+      ${meme(1)}
+    `;
+  }
+
+  function selectDate(d){ selectedDate=d; page3(); }
+
+  function page3(){
+    app.innerHTML = `
+      <h1>April ${selectedDate} 💖</h1>
+      <h2>Lunch or Dinner? 🍽️</h2>
+      <button class="primary" onclick="selectTime('Lunch')">Lunch</button>
+      <button class="primary" onclick="selectTime('Dinner')">Dinner</button>
+      ${meme(2)}
+    `;
+  }
+
+  function selectTime(t){ selectedTime=t; page4(); }
+
+  function page4(){
+    app.innerHTML = `
+      <h2>Do you have any idea for the location or what would you like to try on the date? 💭</h2>
+      <textarea id="ideaInput"></textarea>
+      <br>
+      <button class="primary" onclick="finishIdea()">Submit</button>
+      <button onclick="noIdea()">Nope! 🙈</button>
+      ${meme(3)}
+    `;
+  }
+
+  function finishIdea(){ idea=document.getElementById('ideaInput').value; page5(); }
+
+  function noIdea(){
+    idea='';
+    app.innerHTML = `
+      <h1>Then I'll decide everything 😏</h1>
+      <button class="primary" onclick="page5()">Continue</button>
+      ${meme(3)}
+    `;
+  }
+
+  function page5(){
+    app.innerHTML = `
+      <h2>Would you like some flower on that day? 🌸</h2>
+      <button class="primary" onclick="selectFlower('Yes')">Yes</button>
+      <button onclick="selectFlower('No')">No</button>
+      ${meme(4)}
+    `;
+  }
+
+  function selectFlower(ans){ flower=ans; page6(); }
+
+  function page6(){
+    app.innerHTML = `
+      <h1>Copy that. See yaaaa ! 😳💖</h1>
+      <p>April ${selectedDate} - ${selectedTime}</p>
+      <p>Idea: ${idea || 'I will plan it 😉'}</p>
+      <p>Flower: ${flower}</p>
+      ${meme(5)}
+    `;
+  }
+
+  page1();
+</script>
+</body>
+</html>
