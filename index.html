@@ -108,17 +108,6 @@ let idea='';
 let flower='';
 let extra='';
 
-const memes = {
-  intro: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTVlN3Ewb2MyeDVvYjRhaDNuODg0NGJ0Y2dubmVkaWQxZnZ3ZWhvMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TjSPQgowhhJdHgvnwA/giphy.gif',
-  date: 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZveGN0NnF1cmZ4MDZmdDVuMHl0c2lrZWlpajNpNTFoZTVnYmlkOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bHHat1SlV1VbnTxWCP/giphy.gif',
-  time: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXZhbjkxbWJxazNjYzRoZWN4b2E2a3BjeWRxYW40bTUyYzB4dzFhbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kKeJ4JuNkaEZbkPOOL/giphy.gif',
-  idea: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2E1NzhpM3JycWN4cjFydm5oc2hpbnFsc2FrbTEzcWVub3RkZHJnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pY8jLmZw0ElqvVeRH4/giphy.gif',
-  extra: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2E1NzhpM3JycWN4cjFydm5oc2hpbnFsc2FrbTEzcWVub3RkZHJnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pY8jLmZw0ElqvVeRH4/giphy.gif',
-  end: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXR6YndydjM5czN3b2tra283ZXk4eGR0Ym5hbjJhODV4cXpseDliYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iPiUxztIL4Sl2/giphy.gif'
-};
-
-const meme = (i)=>`<img class="meme" src="${memes[i]}"/>`;
-
 const ENDPOINT = "https://formspree.io/f/xreonyej";
 
 /* ================= NO BUTTON GAME ================= */
@@ -134,8 +123,6 @@ function page1(){
       onclick="startDodge()">
       No 😢
     </button>
-
-    ${meme(0)}
   `;
 }
 
@@ -170,7 +157,6 @@ function page2(){
       <div class="day" onclick="selectDate('July 4th')">July 4th</div>
       <div class="day" onclick="selectDate('July 5th')">July 5th</div>
     </div>
-    ${meme(1)}
   `;
 }
 
@@ -188,8 +174,6 @@ function page3(){
     <button class="primary" onclick="selectTime('In the afternoon')">Afternoon</button>
     <button class="primary" onclick="selectTime('Evening')">Evening</button>
     <button class="primary" onclick="selectTime('All day')">All day</button>
-
-    ${meme(1)}
   `;
 }
 
@@ -206,8 +190,6 @@ function page4(){
     <br>
     <button class="primary" onclick="finishIdea()">Submit</button>
     <button onclick="noIdea()">No idea 🙈</button>
-
-    ${meme(2)}
   `;
 }
 
@@ -239,8 +221,6 @@ function pageExtra(){
 
     <br>
     <button class="primary" onclick="finishExtra()">Send 💌</button>
-
-    ${meme(3)}
   `;
 }
 
@@ -258,8 +238,6 @@ function page5(){
 
     <button class="primary" onclick="flowerYes()">Yes</button>
     <button onclick="flowerNo()">No</button>
-
-    ${meme(4)}
   `;
 }
   function flowerYes(){
@@ -267,8 +245,6 @@ function page5(){
 
   app.innerHTML = `
     <h2>Okay I'll bring you the prettiest one 💐</h2>
-
-    <img class="meme"https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmQ5M283dnVpZHB3OG9vdm5mbjBkd2F3ZWU1eW1uM2RiMmU2NDI0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zl7u48zLVFgLpRwq6f/giphy.gif">
 
     <br>
     <button class="primary" onclick="page6()">Continue</button>
@@ -279,8 +255,6 @@ function page5(){
 
   app.innerHTML = `
     <h2>Of course no flower needed because we are the gorgeous ones 😌✨</h2>
-
-    <img class="meme" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTk4eXM4YzFycGJ2aDhlM3o0c3RiNmN5Z3R6OXhzYmkzeXVpbnEybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UMfHH9AAruF2w/giphy.gif">
 
     <br>
     <button class="primary" onclick="page6()">Continue</button>
@@ -316,7 +290,6 @@ function page6(){
     <p><b>Extra:</b> ${extra||'Secret 🤫'}</p>
     <p><b>Flower:</b> ${flower}</p>
 
-    ${meme(5)}
   `;
 }
 
